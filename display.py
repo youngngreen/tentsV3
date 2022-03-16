@@ -24,36 +24,7 @@ TREE = 3
 
 ##############################################
 
-def printer(Board):
-    # print()
-    # for i in range(n):
-    #     if i==0:
-    #         print('empty  ', end='')
-    #     else:
-    #         if i<10:
-    #             print(' '+str(i), end='    ')
-    #         else:
-    #             print(' '+str(i), end='   ')
-    # print()
-    # for i in range(1, n):
-    #     if i<10:
-    #         print('  '+str(i), end='    ')
-    #     else:
-    #         print('  '+str(i), end='   ')
-
-    #     for j in range(1, len(Board[i])):
-    #         if Board[i][j]=='tr' or Board[i][j]=='nt':
-    #             print(' '+Board[i][j], end='   ')
-    #         elif Board[i][j]=='cbt':
-    #             print(Board[i][j], end='   ')
-    #         else: # tents
-    #             print(Board[i][j], end='  ')
-    #     print()
-    # print()
-
-##############################################
-
-################## try to display input
+def display(Board):
 
     pygame.init()
     window = pygame.display.set_mode(main_resolution)
@@ -72,28 +43,31 @@ def printer(Board):
     ).convert()
 
 
-    grid_size = len(Board[0])
+    board_size = len(Board[0])
     width, height = main_resolution
     offset = 50
     margin = 4
-    cell_size = int((width - 2 * offset - (grid_size - 1) * margin) / grid_size)
+    cell_size = int((width - 2 * offset - (board_size - 1) * margin) / board_size)
     step = cell_size + 5
     font = pygame.font.SysFont("ubuntumono", cell_size // 2)
 
     # Draw cells colors
     coord_x = offset
-    for y in range(grid_size):
+    for y in range(board_size):
         coord_y = offset
-        for x in range(grid_size):
+        for x in range(board_size):
             cell = pygame.Rect(coord_x, coord_y, cell_size, cell_size)
+
             if Board[x][y] == 'nt':
                 pygame.draw.rect(window, gra, cell)
             elif Board[x][y] == 'tr':
                 window.blit(scale(tree_img, (cell_size, cell_size)), cell)
-            elif Board[x][y] == 'cbt':
-                window.blit(scale(num_img, (cell_size, cell_size)), cell)
-            else: # tents
+            elif Board[x][y] == 'tent':
                 window.blit(scale(tent_img, (cell_size, cell_size)), cell)
+            else: # total of tents on each row or column.
+                # window.blit(scale(num_img, (cell_size, cell_size)), cell)
+                text = font.render(str(Board[x][y]), True, black)
+                window.blit(text, cell)
             coord_y += step
         coord_x += step
 
@@ -106,7 +80,7 @@ def printer(Board):
     start = offset + (cell_size // 4)
     stop = height - cell_size
 
-    # # Display row constraints
+    # Display row constraints
     # for y, row_constraint in zip(
     #     range(start, stop, step), row_constraints
     # ):

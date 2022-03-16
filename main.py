@@ -4,13 +4,13 @@
 # imports
 import time
 from board import *
-from printer import *
+from display import *
 from iterlist import *
 import pygame
 
 # get the name of the board to be solved
 filename = input('enter file\'s name (without extention): ')
-f = open('boardname.txt', 'w')
+f = open('testname.txt', 'w')
 f.write(filename+'.txt')
 f.close()
 
@@ -367,13 +367,13 @@ class TaT:
                 break
             pre_bd = self.copy(self.board)
 
-        printer(self.board)
+        display(self.board)
 
         if self.checker(self.board)==False:
             if input('solution not found\nchecking all the ways?(y/n) ').lower()=='y':
                 t = time.time()
                 self.board = self.find_all()
-                printer(self.board)
+                display(self.board)
                 print('time spent:', int(time.time()-t), 'seconds')
 
 
