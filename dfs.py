@@ -3,10 +3,13 @@
 
 # imports
 import time
-from board import *
 from display import *
-from iterlist import *
-import pygame
+from itertools import combinations, product, chain
+
+# gives all combinations of the given list and length
+def iterlist(lst, num):
+    combs = combinations(lst, num)
+    return [list(i) for i in combs]
 
 # get the name of the board to be solved
 filename = input('enter file\'s name (without extention): ')
@@ -20,6 +23,7 @@ try:
 except:
     import sys
     sys.exit()
+
 
 # The solver class
 class TaT:
@@ -368,7 +372,7 @@ class TaT:
             pre_bd = self.copy(self.board)
 
         display(self.board)
-
+     
         if self.checker(self.board)==False:
             if input('solution not found\nchecking all the ways?(y/n) ').lower()=='y':
                 t = time.time()
@@ -377,11 +381,21 @@ class TaT:
                 print('time spent:', int(time.time()-t), 'seconds')
 
 
+
+# for y in range(12):
+#     for x in range(12):
+#         print(origin_board[x][y])
+
 # starting
 p1 = TaT(board)
+
 p1.start()
 
 # input('\npress enter...')
+
+
+
+
 
 
 

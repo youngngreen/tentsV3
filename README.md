@@ -1,2 +1,4 @@
-run: python main.py
-input: test1/test2/test3
+run: python dfs.py
+<br/>
+input: test1
+<!-- or test2/test3,... -->

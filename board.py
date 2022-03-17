@@ -14,7 +14,7 @@ try:
     f.close()
     board = [i.strip().split() for i in file]
     n = len(board)
-    board[0][0] = None
+    board[0][0] = ''
     for i in range(1, n):
         board[0][i] = int(board[0][i])
         board[i][0] = int(board[i][0])
@@ -23,6 +23,8 @@ try:
                 board[i][j] = 'tr'
             if board[i][j]=='b':
                 board[i][j] = 'nt'
+
 except FileNotFoundError:
     print('\nERROR: there is no file called', filename[0:-4])
     input('\npress enter...')
+
