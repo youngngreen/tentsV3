@@ -5,6 +5,8 @@
 import time
 from display import *
 from itertools import combinations, product, chain
+import os, psutil
+
 
 # gives all combinations of the given list and length
 def iterlist(lst, num):
@@ -380,18 +382,14 @@ class TaT:
                 display(self.board)
                 print('time spent:', int(time.time()-t), 'seconds')
 
-
-
-# for y in range(12):
-#     for x in range(12):
-#         print(origin_board[x][y])
-
 # starting
+t = time.time()*1000
 p1 = TaT(board)
-
 p1.start()
+print('time spent:', int(time.time()*1000-t), 'miliseconds')
+process = psutil.Process(os.getpid())
+print('memory spent: ', process.memory_info().rss, 'bytes') 
 
-# input('\npress enter...')
 
 
 
