@@ -1,0 +1,7 @@
+N 1 2 0 2 1 1
+1 b b b b a b
+1 b a b b b b
+2 b a b b a b
+1 b b b b a a
+1 b b b b b b
+1 b b a b b b

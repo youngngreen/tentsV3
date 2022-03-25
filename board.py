@@ -1,14 +1,8 @@
-# nt : not-tent, the places that is impossible to be tent
-# cbt : can-be-tent, the places that can be tent
-
-# getting the board's name
 f = open('testname.txt')
 filename = f.read().strip()
 f.close()
 
-# checking if the given name is wrong
 try:
-    # getting the board
     f = open(f'tests/{filename}')
     file = f.readlines()
     f.close()
@@ -20,11 +14,10 @@ try:
         board[i][0] = int(board[i][0])
         for j in range(1, n):
             if board[i][j]=='a':
-                board[i][j] = 'tr'
+                board[i][j] = 'tree'
             if board[i][j]=='b':
-                board[i][j] = 'nt'
+                board[i][j] = 'not'
 
 except FileNotFoundError:
-    print('\nERROR: there is no file called', filename[0:-4])
-    input('\npress enter...')
+    print('\nERROR: No file: ', filename[0:-4])
 

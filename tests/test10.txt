@@ -1,0 +1,13 @@
+N 2 4 1 4 0 4 1 2 2 3 1 4
+3 b b b b b b b b b b a b
+3 a b a b a b b b a b b a
+3 b b a b b b b b b b a b
+1 b b b b b b b b b b b a
+2 b b a a b b b a b b b b
+1 b b b b b b b b a a b b
+4 a b a b b b a b b b b b
+0 b b b a b b b b b b b a
+5 b b b b b b a b b b a b
+1 b b a b b a b b b b b b
+2 b b a b b b b a b b a b
+3 b a b b a b b b b b b b

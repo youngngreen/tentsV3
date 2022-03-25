@@ -1,0 +1,9 @@
+N 3 0 3 0 1 2 1 2
+2 b b b a b b a b
+1 b b b a b b b b
+2 b b b b b b a a
+1 a b b b b b b b
+1 a a b b b b b b
+2 b b a b b a b b
+1 a b b b b b b b
+2 b b b b a b b b

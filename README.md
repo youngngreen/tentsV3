@@ -1,4 +1,5 @@
-run: python dfs.py
+run: python backTracking.py
+<!-- or hillClimbing.py -->
 <br/>
-input: test1
+and then, input: test1
 <!-- or test2/test3,... -->
